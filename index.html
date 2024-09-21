@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kushagra Jaiswal Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Include Bootstrap or TailwindCSS here for styling -->
 </head>
 <body>
+
     <header>
         <div class="navbar">
             <h1>Kushagra Jaiswal</h1>
@@ -27,19 +27,30 @@
         <a href="#projects" class="cta-button">View Projects</a>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-grid">
-            <!-- Each project will be in a card format -->
+
+            <!-- Project 1: Data Visualization -->
             <div class="project-card">
-                <h3>Project Title</h3>
-                <p>Short description of the project...</p>
-                <a href="project-details.html" class="project-link">View Details</a>
+                <h3>Data Visualization Project</h3>
+                <p>This project visualizes data from a JSON file using Python and Flask.</p>
+                <a href="app.py" class="project-link">View App Code</a>
+                <a href="jsondata.json" class="project-link">View JSON Data</a>
             </div>
-            <!-- Repeat for each project -->
+
+            <!-- Add more projects here with appropriate links -->
+            <div class="project-card">
+                <h3>Person Detection and Tracking (Coming Soon)</h3>
+                <p>This project involves detecting and tracking individuals using machine learning techniques.</p>
+                <a href="https://github.com/Nerd-coderZero/Child_Adult_Detection" class="project-link" target="_blank">View on GitHub</a>
+            </div>
+
         </div>
     </section>
 
+    <!-- Resume Section -->
     <section id="resume">
         <h2>Resume</h2>
         <p><a href="Kushagra_Jaiswal_Resume.pdf" target="_blank">Download Resume (PDF)</a></p>
@@ -50,6 +61,7 @@
         </ul>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
         <form action="mailto:kinuj768@gmail.com" method="POST" enctype="text/plain">
@@ -69,5 +81,6 @@
     <footer>
         <p>© 2024 Kushagra Jaiswal</p>
     </footer>
+
 </body>
 </html>
