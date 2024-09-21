@@ -1,85 +1,66 @@
-from flask import Flask, render_template, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+let jsonData = [];
 
-app = Flask(__name__)
-CORS(app)
+// Fetch and load JSON data
+fetch('jsondata.json')
+    .then(response => response.json())
+    .then(data => {
+        jsonData = data;
+        populateFilterOptions();
+        displayData(jsonData);
+    })
+    .catch(error => console.error('Error loading JSON data:', error));
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:hyijkb@localhost/dashboard_db' 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+// Populate filter dropdowns with unique values
+function populateFilterOptions() {
+    const filters = ['end_year', 'topic', 'sector', 'region'];
+    filters.forEach(filter => {
+        const filterElement = document.getElementById(filter);
+        const uniqueValues = [...new Set(jsonData.map(item => item[filter]).filter(val => val))];
+        uniqueValues.forEach(value => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+            filterElement.appendChild(option);
+        });
+    });
+}
 
-class Insight(db.Model):
-    __tablename__ = 'insights'
-    id = db.Column(db.Integer, primary_key=True)
-    intensity = db.Column(db.Integer)
-    likelihood = db.Column(db.Integer)
-    relevance = db.Column(db.Integer)
-    end_year = db.Column(db.Integer)
-    start_year = db.Column(db.Integer)
-    sector = db.Column(db.String)
-    topic = db.Column(db.String)
-    insight = db.Column(db.String)
-    url = db.Column(db.String)
-    region = db.Column(db.String)
-    impact = db.Column(db.String)
-    added = db.Column(db.String)
-    published = db.Column(db.String)
-    country = db.Column(db.String)
-    pestle = db.Column(db.String)
-    source = db.Column(db.String)
-    title = db.Column(db.String)
-    city = db.Column(db.String)
+// Filter the data based on selected filters
+function filterData() {
+    const filters = {
+        end_year: document.getElementById('end_year').value,
+        topic: document.getElementById('topic').value,
+        sector: document.getElementById('sector').value,
+        region: document.getElementById('region').value,
+    };
 
-    def to_dict(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+    const filteredData = jsonData.filter(item => {
+        return (!filters.end_year || item.end_year === filters.end_year) &&
+               (!filters.topic || item.topic === filters.topic) &&
+               (!filters.sector || item.sector === filters.sector) &&
+               (!filters.region || item.region === filters.region);
+    });
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    displayData(filteredData);
+}
 
-@app.route('/filter_values')
-def get_filter_values():
-    filter_options = {}
-    filter_columns = ['end_year', 'topic', 'sector', 'region', 'pestle', 'source', 'country', 'city']
-    for column in filter_columns:
-        unique_values = db.session.query(getattr(Insight, column)).distinct().all()
-        # Filter out None values and convert to list (modified)
-        filter_options[column] = [str(value[0]) for value in unique_values if value[0] is not None and str(value[0]).strip() != '']
-    return jsonify(filter_options)
+// Display the filtered or full data
+function displayData(data) {
+    const dataDisplay = document.getElementById('data-display');
+    dataDisplay.innerHTML = '';
 
-@app.route('/data')
-def data():
-    filters = {
-        'end_year': request.args.get('end_year'),
-        'topic': request.args.get('topic'),
-        'sector': request.args.get('sector'),
-        'region': request.args.get('region'),
-        'pestle': request.args.get('pestle'),
-        'source': request.args.get('source'),
-        'country': request.args.get('country'),
-        'city': request.args.get('city')
-    }
-
-    query = Insight.query
-    for attr, value in filters.items():
-        if value:
-            # Handle end_year as integer
-            if attr == 'end_year':
-                value = int(value)
-            # Case-insensitive filtering for strings
-            elif isinstance(value, str):
-                query = query.filter(db.func.lower(getattr(Insight, attr)) == value.lower())
-            else:
-                query = query.filter(getattr(Insight, attr) == value)
-    try:        
-        insights = query.all()
-        insights_data = [insight.to_dict() for insight in insights]
-        return jsonify(insights_data)
-    except Exception as e:
-        # Log the error for debugging
-        app.logger.error(f"Error fetching data: {e}")
-        return jsonify({"error": "Internal Server Error"}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    data.forEach(item => {
+        const dataItem = document.createElement('div');
+        dataItem.className = 'data-item';
+        dataItem.innerHTML = `
+            <p><strong>Title:</strong> ${item.title}</p>
+            <p><strong>Insight:</strong> ${item.insight}</p>
+            <p><strong>End Year:</strong> ${item.end_year}</p>
+            <p><strong>Topic:</strong> ${item.topic}</p>
+            <p><strong>Sector:</strong> ${item.sector}</p>
+            <p><strong>Region:</strong> ${item.region}</p>
+            <p><strong>Country:</strong> ${item.country}</p>
+        `;
+        dataDisplay.appendChild(dataItem);
+    });
+}
