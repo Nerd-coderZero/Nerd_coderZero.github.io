@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kushagra Jaiswal - Data Scientist & Developer Portfolio">
     <title>Kushagra Jaiswal - Data Scientist & Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -18,10 +21,11 @@
                         <span class="font-semibold text-gray-800 text-lg">KJ</span>
                     </a>
                 </div>
-                <div class="flex items-center space-x-3">
+                <div class="hidden md:flex items-center space-x-3">
                     <a href="#about" class="py-4 px-2 text-gray-500 hover:text-gray-900">About</a>
                     <a href="#skills" class="py-4 px-2 text-gray-500 hover:text-gray-900">Skills</a>
                     <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-gray-900">Projects</a>
+                    <a href="#education" class="py-4 px-2 text-gray-500 hover:text-gray-900">Education</a>
                     <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-gray-900">Contact</a>
                 </div>
             </div>
@@ -31,7 +35,7 @@
     <!-- Hero Section -->
     <div class="pt-32 pb-12 md:pt-40 md:pb-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center text-white">
+            <div class="text-center text-white" data-aos="fade-up">
                 <h1 class="text-5xl md:text-6xl font-extrabold leading-tighter mb-4">
                     Kushagra Jaiswal
                 </h1>
@@ -39,14 +43,17 @@
                     <p class="text-xl mb-8">
                         Data Scientist & Full Stack Developer
                     </p>
+                    <p class="text-lg mb-8 opacity-80">
+                        Transforming Data into Actionable Insights
+                    </p>
                     <div class="flex justify-center space-x-4">
-                        <a href="https://github.com/Nerd-coderZero" class="text-white hover:text-gray-200">
+                        <a href="https://github.com/Nerd-coderZero" class="text-white hover:text-gray-200 transition">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <a href="https://linkedin.com/in/yourprofile" class="text-white hover:text-gray-200">
+                        <a href="https://linkedin.com/in/yourprofile" class="text-white hover:text-gray-200 transition">
                             <i class="fab fa-linkedin text-2xl"></i>
                         </a>
-                        <a href="mailto:kinuj768@gmail.com" class="text-white hover:text-gray-200">
+                        <a href="mailto:kinuj768@gmail.com" class="text-white hover:text-gray-200 transition">
                             <i class="fas fa-envelope text-2xl"></i>
                         </a>
                     </div>
@@ -55,15 +62,111 @@
         </div>
     </div>
 
-    <!-- Skills Section -->
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+                    <p class="text-gray-600 mb-6">
+                        Detail-oriented and analytical B.Tech graduate in Computer Science from YMCA University
+                        with practical experience in data science and visualization through freelance projects.
+                        Skilled in using advanced analytics tools to derive insights and streamline processes
+                        for data-driven decisions. Strong communicator adept at presenting quantitative insights 
+                        to non-technical audiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+                            Contact Me
+                        </a>
+                        <a href="#projects" class="border border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Education</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>B.Tech in Computer Science</li>
+                            <li>Data Science Bootcamp (upGrad)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Expertise</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>Data Analytics</li>
+                            <li>Machine Learning</li>
+                            <li>Full Stack Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data Visualization Dashboard -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Data Visualization Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Created dynamic dashboards using Power BI and React with interactive features and real-time updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Power BI</span>
+                        </div>
+                        <a href="https://github.com/Nerd-coderZero/Project_DataViz" class="text-blue-500 hover:text-blue-700">
+                            <i class="fab fa-github mr-2"></i>View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Credit Card Fraud Detection -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Credit Card Fraud Detection</h3>
+                        <p class="text-gray-600 mb-4">85%+ accuracy in fraud detection using SMOTE and advanced feature engineering.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Machine Learning</span>
+                        </div>
+                        <a href="https://github.com/Nerd-coderZero/Credit-Card-Fraud-Detection" class="text-blue-500 hover:text-blue-700">
+                            <i class="fab fa-github mr-2"></i>View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RAG Model -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">RAG Q&A Model</h3>
+                        <p class="text-gray-600 mb-4">Created a Q&A model with vector embeddings and Pinecone integration for context-aware answers.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">NLP</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Vector DB</span>
+                        </div>
+                        <a href="https://github.com/Nerd-coderZero/RAG_QA_BOT" class="text-blue-500 hover:text-blue-700">
+                            <i class="fab fa-github mr-2"></i>View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Chart -->
     <section id="skills" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Skills & Expertise</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
+                <div data-aos="fade-right">
                     <canvas id="skillsChart" width="400" height="300"></canvas>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-4" data-aos="fade-left">
                     <div>
                         <h3 class="text-xl font-bold mb-2">Data Analytics & Visualization</h3>
                         <p class="text-gray-600">Advanced Excel, Power BI, Tableau, Python for data preprocessing and EDA</p>
@@ -81,114 +184,34 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Data Visualization Dashboard -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Data Visualization Dashboard</h3>
-                        <p class="text-gray-600 mb-4">Comprehensive dashboard using Power BI and React with dynamic visualizations.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Power BI</span>
-                        </div>
-                        <a href="https://github.com/Nerd-coderZero/Project_DataViz" class="text-blue-500 hover:text-blue-700">
-                            <i class="fab fa-github mr-2"></i>View Project
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Credit Card Fraud Detection -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Credit Card Fraud Detection</h3>
-                        <p class="text-gray-600 mb-4">ML model with 85%+ accuracy using SMOTE and advanced feature engineering.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Machine Learning</span>
-                        </div>
-                        <a href="https://github.com/Nerd-coderZero/Credit-Card-Fraud-Detection" class="text-blue-500 hover:text-blue-700">
-                            <i class="fab fa-github mr-2"></i>View Project
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Person Detection System -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Person Detection System</h3>
-                        <p class="text-gray-600 mb-4">Real-time tracking model using TensorFlow and MediaPipe for ASD therapies.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">TensorFlow</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">OpenCV</span>
-                        </div>
-                        <a href="https://github.com/Nerd-coderZero/Child_Adult_Detection" class="text-blue-500 hover:text-blue-700">
-                            <i class="fab fa-github mr-2"></i>View Project
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-                    <p class="text-gray-600 mb-6">
-                        Detail-oriented and analytical B.Tech graduate in Computer Science from YMCA University
-                        with practical experience in data science and visualization through freelance projects.
-                        Skilled in using advanced analytics tools to derive insights and streamline processes
-                        for data-driven decisions.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <h3 class="font-bold mb-2">Education</h3>
-                            <ul class="text-gray-600 list-disc list-inside">
-                                <li>B.Tech in Computer Science</li>
-                                <li>Data Science Bootcamp</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-bold mb-2">Certifications</h3>
-                            <ul class="text-gray-600 list-disc list-inside">
-                                <li>Data Science (upGrad)</li>
-                                <li>Web Development (Bolt IOT)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
-            <div class="flex justify-center space-x-8">
-                <a href="mailto:kinuj768@gmail.com" class="flex items-center text-gray-600 hover:text-gray-900">
-                    <i class="fas fa-envelope mr-2"></i>
-                    kinuj768@gmail.com
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                <a href="mailto:kinuj768@gmail.com" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+                    <i class="fas fa-envelope mr-2 text-2xl"></i>
+                    <span>kinuj768@gmail.com</span>
                 </a>
-                <a href="https://github.com/Nerd-coderZero" class="flex items-center text-gray-600 hover:text-gray-900">
-                    <i class="fab fa-github mr-2"></i>
-                    GitHub
+                <a href="https://github.com/Nerd-coderZero" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+                    <i class="fab fa-github mr-2 text-2xl"></i>
+                    <span>GitHub</span>
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" class="flex items-center text-gray-600 hover:text-gray-900">
-                    <i class="fab fa-linkedin mr-2"></i>
-                    LinkedIn
+                <a href="https://linkedin.com/in/yourprofile" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+                    <i class="fab fa-linkedin mr-2 text-2xl"></i>
+                    <span>LinkedIn</span>
                 </a>
             </div>
         </div>
     </section>
 
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
         // Initialize Skills Chart
         const ctx = document.getElementById('skillsChart').getContext('2d');
         new Chart(ctx, {
@@ -196,7 +219,7 @@
             data: {
                 labels: ['Python', 'Data Analysis', 'Machine Learning', 'Web Dev', 'SQL', 'Data Viz'],
                 datasets: [{
-                    label: 'Skills',
+                    label: 'Skills Proficiency',
                     data: [90, 85, 80, 75, 85, 80],
                     backgroundColor: 'rgba(99, 102, 241, 0.2)',
                     borderColor: 'rgba(99, 102, 241, 1)',
@@ -212,9 +235,13 @@
                         beginAtZero: true,
                         max: 100
                     }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
                 }
             }
         });
     </script>
 </body>
-</html>
